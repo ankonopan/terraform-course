@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  first-step:
+    image: hashicorp/terraform
+    env_file: .env
+    working_dir: /demos
+    volumes:
+      # - ~/.aws:/home/terraform/.aws
+      - ./first-step:/demos
+

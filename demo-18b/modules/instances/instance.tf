@@ -11,7 +11,7 @@ variable "PUBLIC_SUBNETS" {
 variable "VPC_ID" {}
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
+  default = "../.ssh/mykey.pub"
 }
 
 data "aws_ami" "ubuntu" {
@@ -43,7 +43,7 @@ resource "aws_instance" "instance" {
   # the public SSH key
   key_name = "${aws_key_pair.mykeypair.key_name}"
 
-  tags {
+  tags = {
     Name         = "instance-${var.ENV}"
     Environmnent = "${var.ENV}"
   }
@@ -68,7 +68,7 @@ resource "aws_security_group" "allow-ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name         = "allow-ssh"
     Environmnent = "${var.ENV}"
   }

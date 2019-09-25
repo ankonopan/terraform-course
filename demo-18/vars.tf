@@ -1,13 +1,13 @@
 variable "AWS_REGION" {
-  default = "eu-west-1"
+  default = "eu-central-1"
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
-  default = "mykey"
+  default = "../.ssh/mykey"
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
+  default = "../.ssh/mykey.pub"
 }
 
 variable "ENV" {
